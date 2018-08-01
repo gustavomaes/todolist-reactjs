@@ -1,0 +1,188 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  background-color: #ff4e50;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.content {
+  display: flex;
+  flex: 0 0 100%; 
+  flex-direction: column;
+  height: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fad422;
+  height: 80px;
+}
+
+.heading-primary {
+  color: black;
+  font-size: 6rem;
+  font-weight: 700;
+  letter-spacing: 1.5rem;
+}
+
+.text-primary {
+  align-self: center;
+  color: black;
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.input {
+  align-self: center;
+
+  font-size: 3rem;
+  color: #a0b3b3;
+  background-color: #202124;
+  border: none;
+  border-radius: .5rem;
+  margin: 2rem;
+  width: 50%;
+
+}
+
+.input:focus {
+  outline: none;
+  width: 50%;
+  background-color: #202124;
+}
+
+.input::placeholder {
+  /* font-weight: 100; */
+  color: #a0b3b3;
+}
+
+.btn {
+  align-self: center;
+
+  font-size: 3rem;
+  color: #202124;
+
+  border: none;
+  border-radius: .5rem;
+  background-color: #1fc0ff;
+  height: 5rem;
+  width: 10%;
+  margin-bottom: 2rem;
+}
+
+.btn-2 {
+  align-self: center;
+
+  font-size: 3rem;
+  color: #202124;
+
+  border: none;
+  border-radius: .5rem;
+  background-color: #fad422;
+  height: 5rem;
+  margin: 2rem;
+
+  width: 20%;
+}
+
+.btn:focus,
+.btn-2:focus {
+  outline: none;
+}
+
+.btn:active {
+  background-color: #0097d2;
+}
+
+.btn-2:active {
+  background-color: #cba805;
+}
+
+.btn:hover,
+.btn-2:hover {
+  cursor: pointer;
+}
+
+
+.table {
+  align-self: center;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;  
+  width: 50%;
+}
+
+.table td, .table th {
+  padding-right: 3rem;
+  padding-bottom: 1rem;
+
+}
+
+.table td {
+  font-size: 2rem;
+  color: #202124;
+  font-weight: 300;
+}
+
+.table th {
+  text-align: left;
+  font-size: 3rem;
+  color: #202124;
+  font-weight: 700;
+}
+
+.table td:first-child {
+  text-align: right;
+}
+
+.table td:last-child {
+  text-align: center;
+}
+
+.table th:first-child {
+  text-align: right;
+}
+
+.table th:last-child {
+  text-align: center;
+}
+
+.check {
+  position: relative;
+  appearance: none;
+  background-color: #fad422;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.check:checked {
+	background-color: #fad422;
+  color: #202124;
+  outline: none;
+}
+
+.check:checked:checked:after {
+  position: absolute;
+  top: 2px;
+  left: 6px;
+	content: 'X';
+  font-size: 2rem;
+  font-weight: 500;
+	color: #202124;
+}
+
+.check:focus {
+  outline: none;
+}
