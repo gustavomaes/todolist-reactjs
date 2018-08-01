@@ -8,19 +8,13 @@ const NewTask = ({ addTask }) =>
         <input className="input" placeholder="Criar novo item" />
         <button className="btn" onClick={ () => {
             const task = {
-                data: {
                     description: 'Teste',
                     done: false
-                }
             }
             
             addTask(task)
         }}>Salvar</button>
     </div>
-
-const mapStateToProps = (state) => {
-    return { }
-}
 
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -29,4 +23,4 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewTask)
+export default connect(null, mapDispatchToProps)(NewTask)

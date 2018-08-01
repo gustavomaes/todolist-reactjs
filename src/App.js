@@ -3,11 +3,8 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux'
 import store from './redux'
 
-import { Header } from './components/Header';
-import Table from './components/Table';
-import NewTask from './components/NewTask';
-
 import './css/Style.css'
+import Home from './screens/Home';
 
 /**
  * Acompanhe as instruções do documento compartilhado com você.
@@ -29,17 +26,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <div className="container">
-          <Header />
-
-          <div className="content">
-
-            <NewTask />
-            <Table />
-            <button className="btn-2">Marcar tudo como feito</button>
-
-          </div>
-        </div>
+        <Home />
       </Provider>
     )
   }

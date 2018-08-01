@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { loadTasksRequest } from '../redux/actions'
 
-import { TableContent } from './TableContent';
+import TableContent from './TableContent';
 
 class Table extends Component {
 
@@ -29,7 +29,7 @@ class Table extends Component {
 
                         <tbody>
                             {this.props.tasks.map((data, index) => {
-                                return <TableContent key={index} title={index + 1} description={data.description} done={data.done} />
+                                return <TableContent key={index} index={index} task={data} />
                             })}
                         </tbody>
                     </table>

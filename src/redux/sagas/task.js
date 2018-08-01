@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { put } from 'redux-saga/effects'
-import { loadTasksSuccess, createTaskSuccess } from '../actions'
+import { loadTasksSuccess, createTaskSuccess, deleteTaskSuccess, editTaskSuccess } from '../actions'
 
 const url = 'https://app-acruxx.wedeploy.io'
 
@@ -14,16 +14,16 @@ export function* getTasks() {
 }
 
 export function* addTask(action) {
-  const task = yield client.post('/', action.task.data)
+  const task = yield client.post('/', action.task)
   yield put(createTaskSuccess(task.data))
 }
 
-// export function* editTask(action) {
-//   const tasks = yield client.put(`/${action.task.id}`, action.task.data)
-//   // yield put(loadDataSuccess(tasks.data))
-// }
+export function* editTask(action) {
+  yield client.put(`/${action.task.id}`, action.task.data)
+  yield put(editTaskSuccess(action.task))
+}
 
 export function* deleteTask(action) {
   yield client.delete(`/${action.task.id}`)
-  // yield put(loadDataSuccess(tasks.data))
+  yield put(deleteTaskSuccess(action.task.index))
 }
