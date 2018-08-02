@@ -52,3 +52,16 @@ export const editTaskSuccess = (task) => {
         task: task
     }
 }
+
+export const editTaskFailure = (task) => {
+    return {
+        type: 'EDIT_TASK_FAILURE',
+        task: task
+    }
+}
+
+export const reset = () => {
+    return {
+        type: 'RESET'
+    }
+}

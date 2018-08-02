@@ -6,6 +6,9 @@ import store from './redux'
 import './css/Style.css'
 import Home from './screens/Home';
 
+import { NotificationContainer } from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
+
 /**
  * Acompanhe as instruções do documento compartilhado com você.
  * Fique a vontade para usar a estrutura de pasta como quiser.
@@ -26,7 +29,10 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Home />
+        <div>
+          <Home />
+          <NotificationContainer />
+        </div>
       </Provider>
     )
   }

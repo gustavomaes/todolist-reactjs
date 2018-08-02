@@ -1,6 +1,8 @@
 const initialState = {
     tasks: [],
-    isLoading: false
+    isLoading: false,
+    error: false,
+    erroMessage: ''
 }
 
 const tasks = (state = initialState, action) => {
@@ -9,18 +11,17 @@ const tasks = (state = initialState, action) => {
     switch (action.type) {
         case 'LOAD_TASKS_REQUEST':
             return {
+                ...state,
                 isLoading: true,
                 tasks: []
             }
 
         case 'LOAD_TASKS_SUCCESS':
             return {
+                ...state,
                 isLoading: false,
                 tasks: action.tasks
             }
-
-        // case 'CREATE_TASK_REQUEST':
-        //     return state
 
         case 'CREATE_TASK_SUCCESS':
             newTasks = [...state.tasks]
@@ -29,9 +30,6 @@ const tasks = (state = initialState, action) => {
                 ...state,
                 tasks: newTasks,
             }
-
-        // case 'DELETE_TASK_REQUEST':
-        //     return state
 
         case 'DELETE_TASK_SUCCESS':
             newTasks = [...state.tasks]
@@ -42,17 +40,33 @@ const tasks = (state = initialState, action) => {
                 tasks: newTasks
             }
 
-        // case 'EDIT_TASK_REQUEST':
-        //     return state
-
         case 'EDIT_TASK_SUCCESS':
-            console.log(action.task)
             newTasks = [...state.tasks]
-            newTasks[action.task.index].description = action.task.data.description
             newTasks[action.task.index].done = action.task.data.done
 
             return {
-                ...state            
+                ...state,
+                error: false,
+                tasks: newTasks
+            }
+
+        case 'EDIT_TASK_FAILURE':
+            newTasks = [...state.tasks]
+            newTasks[action.task.index].done = !action.task.data.done
+
+            return {
+                ...state,
+                error: true,
+                erroMessage: 'Erro ao editar tarefa',
+                tasks: newTasks
+            }
+
+        case 'RESET':
+            return {
+                ...state,
+                isLoading: false,
+                error: false,
+                erroMessage: ''
             }
 
         default:

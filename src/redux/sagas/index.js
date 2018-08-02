@@ -1,4 +1,4 @@
-import { takeLatest, all } from 'redux-saga/effects'
+import { takeLatest, all, takeEvery } from 'redux-saga/effects'
 
 import { getTasks, addTask, deleteTask, editTask } from './task'
 
@@ -7,7 +7,7 @@ export default function* rootSaga() {
         takeLatest('LOAD_TASKS_REQUEST', getTasks),
         takeLatest('CREATE_TASK_REQUEST', addTask),
         takeLatest('DELETE_TASK_REQUEST', deleteTask),
-        takeLatest('EDIT_TASK_REQUEST', editTask),
+        takeEvery('EDIT_TASK_REQUEST', editTask),
     ])
 }
 
