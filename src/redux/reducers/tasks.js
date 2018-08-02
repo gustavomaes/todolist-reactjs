@@ -2,7 +2,8 @@ const initialState = {
     tasks: [],
     isLoading: false,
     error: false,
-    erroMessage: ''
+    erroMessage: '',
+    deleted: false
 }
 
 const tasks = (state = initialState, action) => {
@@ -34,9 +35,10 @@ const tasks = (state = initialState, action) => {
         case 'DELETE_TASK_SUCCESS':
             newTasks = [...state.tasks]
             newTasks.splice(action.index, 1)
-
+            console.log(newTasks)
             return {
                 ...state,
+                deleted: true,
                 tasks: newTasks
             }
 
@@ -65,6 +67,7 @@ const tasks = (state = initialState, action) => {
             return {
                 ...state,
                 isLoading: false,
+                deleted: false,
                 error: false,
                 erroMessage: ''
             }

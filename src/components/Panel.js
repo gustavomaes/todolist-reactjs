@@ -36,7 +36,7 @@ class Panel extends Component {
                     createNotification('success', 'Todas as tarefas foram realizadas', 'Marcar todas')
                 }}>Marcar todas</button>
 
-                <div className="masonry">
+                <div className="grid">
                     {
                         this.props.tasks.map((data, index) => {
                             return <Card key={index} index={index} task={data} />
