@@ -1,8 +1,6 @@
 import { NotificationManager } from 'react-notifications'
 
 const createNotification = (type, message, title) => {
-
-    console.log('aaa')
     switch (type) {
         case 'success':
             NotificationManager.success(message, title)
@@ -13,7 +11,6 @@ const createNotification = (type, message, title) => {
         default:
             break
     }
-
 }
 
 export default createNotification

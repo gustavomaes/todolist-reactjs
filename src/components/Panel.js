@@ -3,11 +3,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { loadTasksRequest, editTaskRequest } from '../redux/actions'
 
-import Card from './Card';
+import Card from './Card'
 
 import createNotification from './Notification'
 
-class Table extends Component {
+class Panel extends Component {
 
     componentDidMount() {
         this.props.loadData()
@@ -16,7 +16,8 @@ class Table extends Component {
     checkAll() {
         this.props.tasks.map((task, index) => {
             return (
-                !task.done ? this.props.editTask({
+                !task.done ? 
+                this.props.editTask({
                     id: task.id,
                     index: index,
                     data: {
@@ -24,7 +25,6 @@ class Table extends Component {
                         done: !task.done
                     }
                 }) : null)
-
         })
     }
 
@@ -33,9 +33,7 @@ class Table extends Component {
             <div>
                 <button className="btn" onClick={() => {
                     this.checkAll()
-
                     createNotification('success', 'Todas as tarefas foram realizadas', 'Marcar todas')
-
                 }}>Marcar todas</button>
 
                 <div className="masonry">
@@ -65,4 +63,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Table)
+export default connect(mapStateToProps, mapDispatchToProps)(Panel)

@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react'
 
 import { Provider } from 'react-redux'
 import store from './redux'
 
 import './css/Style.css'
-import Home from './screens/Home';
+import Home from './screens/Home'
 
-import { NotificationContainer } from 'react-notifications';
-import 'react-notifications/lib/notifications.css';
+import { NotificationContainer } from 'react-notifications'
+import 'react-notifications/lib/notifications.css'
 
 /**
  * Acompanhe as instruções do documento compartilhado com você.
@@ -25,17 +25,12 @@ import 'react-notifications/lib/notifications.css';
  * Boa sorte!
  */
 
-class App extends Component {
-  render() {
-    return (
-      <Provider store={store}>
-        <div>
-          <Home />
-          <NotificationContainer />
-        </div>
-      </Provider>
-    )
-  }
-}
+const App = () =>
+  <Provider store={store}>
+    <div>
+      <Home />
+      <NotificationContainer />
+    </div>
+  </Provider>
 
-export default App;
+export default App

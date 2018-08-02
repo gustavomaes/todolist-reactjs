@@ -42,13 +42,9 @@ class Card extends Component {
                 <div className="card__icon-box">
                     <i className={task.done ? "fas fa-check card__checked" : "fas fa-check card__unchecked"} onClick={() => this.editTask(!task.done, this.state.description)} />
 
-                    <i className="fas fa-pencil-alt card__pencil" onClick={() => {
-                        this.setState({ edit: true })
-                    }} />
+                    <i className="fas fa-pencil-alt card__pencil" onClick={() => this.setState({ edit: true }) } />
 
-                    <i className="far fa-trash-alt card__trash" onClick={() => {
-                        deleteTask({ id: task.id, index: index })
-                    }} />
+                    <i className="far fa-trash-alt card__trash" onClick={() => deleteTask({ id: task.id, index: index }) } />
                 </div>
             </div>
         )
@@ -104,6 +100,5 @@ const mapDispatchToProps = (dispatch) => {
         reset: () => dispatch(reset())
     }
 }
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card)
